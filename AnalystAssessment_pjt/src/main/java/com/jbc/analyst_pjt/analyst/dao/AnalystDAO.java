@@ -44,4 +44,17 @@ public class AnalystDAO {
 	public void delete(int analystCode) {
 		sqlSession.delete("mybatis.analyst.delete", analystCode);
 	}	
+	public int searchCount(String searchField, String searchText) {
+		HashMap<String, String> map = new HashMap<String, String>();
+		return sqlSession.selectOne("mybatis.analyst.searchCount", map);
+	}
+	//검색 결과
+	public List<AnalystVO> searchList(int startNo, int endNo, String searchField, String searchText) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("startNo", startNo);
+		map.put("endNo", endNo);
+		map.put("searchField", searchField);
+		map.put("searchText", searchText);
+		return sqlSession.selectList("mybatis.analyst.searchList", map);
+	}
 }

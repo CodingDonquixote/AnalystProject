@@ -20,5 +20,25 @@
 			<provider-property name="@dbeaver-always-show-dba@" value="false"/>
 		</connection>
 	</data-source>
+	<data-source id="oracle_thin-169dcef4a01-21d979b31113823" provider="oracle" driver="oracle_thin" name="RDS-Oracle-springuser" save-password="true" show-system-objects="true" read-only="false">
+		<connection host="analyst-pjt.cbp0bpbqydjt.ap-northeast-2.rds.amazonaws.com" port="1521" server="" database="ORCL" url="jdbc:oracle:thin:@//analyst-pjt.cbp0bpbqydjt.ap-northeast-2.rds.amazonaws.com:1521/ORCL" user="springuser" password="Q1RWcBETFEZl8w==" home="D:\oracle\app\oracle\product\11.2.0\server" type="dev">
+			<provider-property name="@dbeaver-always-use-dba-views@" value="false"/>
+			<provider-property name="@dbeaver-sid-service@" value="SERVICE"/>
+			<provider-property name="@dbeaver-use-rule-hint@" value="false"/>
+			<provider-property name="@dbeaver-connection-type@" value="BASIC"/>
+			<provider-property name="@dbeaver-check-schema-content@" value="false"/>
+			<provider-property name="@dbeaver-always-show-dba@" value="false"/>
+		</connection>
+	</data-source>
+	<data-source id="oracle_thin-16a266ad470-7515209ff031836d" provider="oracle" driver="oracle_thin" name="Oracle - ORCL" save-password="true" show-system-objects="true" read-only="false">
+		<connection host="junchoi.cly4gckzhhwl.ap-northeast-2.rds.amazonaws.com" port="1521" server="" database="ORCL" url="jdbc:oracle:thin:@//junchoi.cly4gckzhhwl.ap-northeast-2.rds.amazonaws.com:1521/ORCL" user="springuser" password="Q1RWcBETFEZl8w==" home="D:\oracle\app\oracle\product\11.2.0\server" type="dev">
+			<provider-property name="@dbeaver-always-use-dba-views@" value="false"/>
+			<provider-property name="@dbeaver-sid-service@" value="SERVICE"/>
+			<provider-property name="@dbeaver-use-rule-hint@" value="false"/>
+			<provider-property name="@dbeaver-connection-type@" value="BASIC"/>
+			<provider-property name="@dbeaver-check-schema-content@" value="false"/>
+			<provider-property name="@dbeaver-always-show-dba@" value="false"/>
+		</connection>
+	</data-source>
 	<filters/>
 </data-sources>

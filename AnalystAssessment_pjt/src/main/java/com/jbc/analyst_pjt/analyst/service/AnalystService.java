@@ -67,5 +67,15 @@ public class AnalystService {
 		if(dbVO!=null) {
 			analystDAO.delete(vo.getAnalystCode());
 		}
-	}	
+	}
+	public Paging<AnalystVO> searchList(int currentPage,int pageSize,int blockSize,String searchField, String searchText){
+		Paging<AnalystVO> paging =null;
+		int totalCount = analystDAO.searchCount(searchField, searchText);
+		paging = new Paging<AnalystVO>(totalCount, currentPage, pageSize, blockSize);
+		if(paging.getTotalCount()>0) {	
+			List<AnalystVO> list = analystDAO.searchList(paging.getStartNo(), paging.getEndNo(), searchField, searchText);
+			paging.setLists(list);
+		}
+		return paging;
+	}
 }

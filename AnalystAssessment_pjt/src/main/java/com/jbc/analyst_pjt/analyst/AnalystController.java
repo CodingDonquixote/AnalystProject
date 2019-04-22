@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,7 +37,10 @@ public class AnalystController {
 			@RequestParam(required = false) Integer p,
 			@RequestParam(required = false) Integer s,
 			@RequestParam(required = false) Integer b,
+			@RequestParam(required = false) String searchField,
+			@RequestParam(required = false) String searchText,
 			Model model,
+			HttpSession session,
 			HttpServletRequest request
 			) {
 		// 컨트롤러에서 포스트 전송값 받기
@@ -66,6 +70,14 @@ public class AnalystController {
 		if(b != null)
 			blockSize = b;
 		Paging<AnalystVO> paging = analystService.selectList(currentPage, pageSize, blockSize);
+		if(searchText == null || searchText.trim().length()==0) {
+			paging = analystService.selectList(currentPage, pageSize, blockSize);
+		}else {
+			if(searchText != null || searchText.trim().length()!=0) {
+				paging = analystService.searchList(currentPage, pageSize, blockSize, searchField, searchText);
+			}
+		}
+		model.addAttribute("searchField", searchField);
 		model.addAttribute("paging",paging);
 		return "analyst/a_list";
 	}
