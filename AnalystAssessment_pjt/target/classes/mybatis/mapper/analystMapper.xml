@@ -44,5 +44,66 @@
 	<delete id="delete" parameterType="int">
 		delete from analyst where analystCode=#{analystCode}
 	</delete>
+	<!-- 검색 관련 메서드 -->
+	<select id="searchCount" parameterType="HashMap" resultType="Int">
+select count(*)
+from
+Analyst
+<where>
+			<if test="searchText !=null and searchField == 'analystname'">
+				<![CDATA[
+				and upper(analystname) like '%' || upper(#{searchText}) || '%'
+				]]>
+			</if>
+			<if test="searchText !=null and searchField == 'firmname'">
+			<![CDATA[
+				and upper(firmname) like '%' || upper(#{searchText}) || '%'
+			]]>
+				</if>
+			<if test="searchText !=null and searchField == 'industryname'">
+			<![CDATA[
+				and upper(industryname) like '%' || upper(#{searchText}) || '%'
+			]]>
+			</if>
+		</where>
+</select>
+		
+	<!-- 검색 결과 -->
+	<select id="searchList" parameterType="HashMap" resultType="analystVO">
+	select
+		R.*
+		from
+		(select
+		rownum rnum, Q.*
+		from
+		(select * from analyst 
+		<where>
+			<if test="searchText !=null and searchField == 'analystname'">
+		<![CDATA[
+				and upper(analystname) like '%' || upper(#{searchText}) || '%'
+			]]>
+			</if>
+			<if test="searchText !=null and searchField == 'firmname'">
+			<![CDATA[
+				and upper(firmname) like '%' || upper(#{searchText}) || '%'
+			]]>
+			</if>
+			<if test="searchText !=null and searchField == 'industryname'">
+			<![CDATA[
+				and upper(industryname) like '%' || upper(#{searchText}) || '%'
+			]]>
+			</if>
+		</where>
+		order by analystCode desc) Q
+		where
+				<![CDATA[
+				rownum <= #{endNo}) R
+				]]>
+		where
+			<![CDATA[
+			rnum >= #{startNo}
+			]]>
+	
+	</select>
 
 </mapper>

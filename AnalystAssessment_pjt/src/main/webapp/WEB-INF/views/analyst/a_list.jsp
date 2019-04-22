@@ -115,6 +115,19 @@ td {padding: 5px;border: 1px solid gray;}
 				<input type="button" value="등록하기"  onclick="post_to_url('register', {'p':'${paging.currentPage }','s':'${paging.pageSize }','b':'${paging.blockSize }'});">
 			</td>
 		</tr>		
+		<tr>
+			<td align="center" colspan="5" style="border: none;">
+			<form method="get" action="a_list">
+			<select id="searchField" name="searchField">
+				<option value="analystname" <c:if test="${searchField eq 'analystname'}"> selected= "selected" </c:if>>아날리스트 이름</option>
+				<option value="firmname" <c:if test="${searchField eq 'firmname'}"> selected= "selected" </c:if>>소속사 명</option>
+				<option value="industryname" <c:if test="${searchField eq 'industryname'}"> selected= "selected" </c:if>>산업 분야</option>
+			</select>
+			<input type="text" id="searchText" name="searchText" size="40"  required="required">
+			<input type="submit" value="검색" >
+			</form>
+			</td>
+		</tr>
 	</table>
 </div>
 </body>
