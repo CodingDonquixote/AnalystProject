@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Sun May 05 15:41:02 KST 2019
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\\uAE40\uB780\uC625\\.m2\\repository\\org\\springframework\\spring-web\\4.3.13.RELEASE\\spring-web-4.3.13.RELEASE.jar=C\:\\DON\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\AnalystAssessment_pjt\\WEB-INF\\lib\\spring-web-4.3.13.RELEASE.jar
+org.eclipse.jst.jee.server\:AnalystAssessment_pjt=C\:\\DON\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\AnalystAssessment_pjt
